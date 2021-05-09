@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Statistique inférentielle</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Statistique inférentielle (1)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14265,7 +14265,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><font size="6">  Test d'indépendance 🎲 </font></p>
+<p><font size="6">  Test d'indépendance 🎲 avec Python </font></p>
 
 </div>
 </div>
@@ -14295,10 +14295,22 @@ a.anchor-link {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">bartlett</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">shapiro</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">kendalltau</span><span class="p">,</span> <span class="n">spearmanr</span>
+
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_regression</span><span class="p">,</span> <span class="n">make_circles</span>
+
+<span class="kn">import</span> <span class="nn">statsmodels.stats.multicomp</span> <span class="k">as</span> <span class="nn">multi</span> 
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
 </pre></div>
 
      </div>
@@ -14315,7 +14327,7 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>L’intérêt des tests de corrélation est d’apporter plus de pertinence et fiabilité aux coefficients de corrélation. Il existe différents test de corrélation, nous utilisons celui de Pearson.</p>
-<p>On travaille avec le jeu de données fromage 🧀 disponible en <a href="https://github.com/asardell/programmation-r/tree/master/dataset">cliquant ici</a></p>
+<p>On travaille avec le jeu de données fromage 🧀 disponible en <a href="https://github.com/asardell/statistique-python/tree/master/Dataset">cliquant ici</a></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15804,7 +15816,7 @@ SpearmanrResult(correlation=0.0065406540654065395, pvalue=0.9485045076254706)
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>On travaille sur le jeu de données Titanic 🧊⛴ disponible en <a href="">cliquant ici</a></p>
+<p>On travaille sur le jeu de données Titanic 🧊⛴ disponible en <a href="https://github.com/asardell/statistique-python/tree/master/Dataset">cliquant ici</a></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -16461,7 +16473,7 @@ Si on veut rejeter H0 et prendre H1, j'ai 10,9% de chance de me tromper</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Exemple sur le dataset Hotdogs 🌭 disponible en <a href="">cliquant ici</a>.</p>
+<p>Exemple sur le dataset Hotdogs 🌭 disponible en <a href="https://github.com/asardell/statistique-python/tree/master/Dataset">cliquant ici</a>.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -17352,7 +17364,7 @@ H0 : Les moyennes de chaque groupe sont égales si p-value &gt; 5%
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>On utilise le dataset ToothGrowth disponible en <a href="">cliquant ici</a>. On étudie la longueur des odontoblastes (cellules responsables de la croissance dentaire) chez 60 cobayes. Chaque animal a reçu l'une des trois doses de vitamine C (0,5, 1 et 2 mg / jour) par l'une des deux méthodes d'administration, du jus d'orange ou de l'acide ascorbique (une forme de vitamine C et codée VC) :</p>
+<p>On utilise le dataset ToothGrowth disponible en <a href="https://github.com/asardell/statistique-python/tree/master/Dataset">cliquant ici</a>. On étudie la longueur des odontoblastes (cellules responsables de la croissance dentaire) chez 60 cobayes. Chaque animal a reçu l'une des trois doses de vitamine C (0,5, 1 et 2 mg / jour) par l'une des deux méthodes d'administration, du jus d'orange ou de l'acide ascorbique (une forme de vitamine C et codée VC) :</p>
 <ul>
 <li>len : lLongueur de la dent</li>
 <li>supp : supplément (VC ou OJ).</li>
